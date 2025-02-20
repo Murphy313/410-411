@@ -3,45 +3,30 @@
   <title>Team Bios</title>
   <head>
     <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="header">
-      <a id="a-title" href="/index.html">
-        <h3>Home</h3>
-      </a>
-      <a id="" href="/presentations.html">
-        <h3>Presentations</h3>
-      </a>
-      <a id="" href="/bios.html">
-        <h3>Team Bios</h3>
-      </a>
-    </div>
-    <div class="container">
-      <h2>Joshua Renn</h2>
-      <p>
-        Joshua Renn is a Senior at Old Dominion University majoring in Computer
-        Science.
-      </p>
-      <p>
-        He currently works in the public school system in the Tech department.
-      </p>
-      <p>
-        In his free time, he builds terrariums and is on his 30th Elden Ring
-        playthrough.
-      </p>
-    </div>
-  </body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Team Bio</title>
     <style>
+      /* The navbar container */
+      .topnav {
+        overflow: hidden;
+        background-color: #333;
+      }
+
+      /* Navbar links */
+      .topnav a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      /* Links - change color on hover */
+      .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
       body {
         font-family: Arial, sans-serif;
-        text-align: center;
       }
       .member {
         margin: 10px;
@@ -52,8 +37,22 @@
       }
     </style>
   </head>
+  <div class="topnav">
+    <a id="a-title" href="/index.html">
+      <h3>Home</h3>
+    </a>
+    <a id="" href="/presentations.html">
+      <h3>Presentations</h3>
+    </a>
+    <a id="" href="/bios.html">
+      <h3>Team Bios</h3>
+    </a>
+  </div>
   <body>
-    <h1>Team Bio</h1>
+    <div class="header">
+      <h1>Team Bios</h1>
+    </div>
+
     <div class="member">
       <h3>Elijah Joaquim</h3>
       <p class="bio"></p>
@@ -75,7 +74,12 @@
     </div>
     <div class="member">
       <h3>Joshua Renn</h3>
-      <p class="bio">.</p>
+      <p class="bio">
+        Joshua Renn is a Senior at Old Dominion University majoring in Computer
+        Science. He currently works in the public school system in the Tech
+        department. In his free time, he builds terrariums and is on his 30th
+        Elden Ring playthrough.
+      </p>
     </div>
   </body>
 </html>

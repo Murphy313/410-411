@@ -6,6 +6,7 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
+  padding-top: 120px; /* Adjusted for navbar spacing */
 }
 
 .container {
@@ -14,7 +15,8 @@ body {
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
-  top: 100px;
+  margin-top: 20px;
+  width: auto;
 }
 
 .header {
@@ -23,9 +25,10 @@ body {
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: fixed;
-  top: 10px;
+  top: 0;
   width: 100%;
   text-align: center;
+  z-index: 1000;
 }
 
 h1 {
@@ -66,42 +69,56 @@ input {
   border-radius: 5px;
 }
 
-button {
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
 /* The navbar container */
-.topnav {
+.tab {
   overflow: hidden;
   background-color: #333;
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: fixed;
-  top: 130px;
+  top: 120px;
   width: 100%;
+  z-index: 999;
 }
 
-/* Navbar links */
-.topnav a {
+.tab button {
   float: left;
   display: block;
-  color: #f2f2f2;
+  color: #333;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  width: 150px;
+  height: 100px;
 }
 
-/* Links - change color on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
+.tabcontent {
+  display: none;
+  padding: 20px;
+  max-height: calc(100vh - 160px);
+  overflow-y: auto;
+}
+
+/* 🔥 Fixed Presentations Section */
+#Presentations {
+  display: inline-block;
+
+  padding-left: 20px;
+  margin-top: 120px; /* Prevents overlap with navbar */
+}
+
+#Presentations iframe {
+  width: auto; /* Prevents full width overflow */
+  height: auto; /* Adjusted for better readability */
+  border: none;
+  margin-top: 20px;
+}
+
+.member {
+  margin: 10px;
+}
+.bio {
+  font-style: italic;
+  color: gray;
 }

@@ -13,11 +13,19 @@
       --highlight-blue: #66ccff;
     }
 
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh; /* body always at least full screen */
+      background-color: var(--dark-gray); /* same color for both */
+    }
+
     body {
       font-family: Arial, sans-serif;
-      background-color: var(--light-gray);
-      margin: 0;
-      padding-top: 180px; /* Adjusted for header + navbar */
+      /* keep existing */
+      padding-top: 180px; /* header + nav */
+      padding-bottom: 70px; /* room so content doesn't hide under footer */
       color: var(--text-gray);
     }
 
@@ -67,14 +75,11 @@
 
     .tabcontent {
       display: none;
-      padding: 40px 20px;
+      padding: 40px 0; /* no left/right padding */
       max-width: 900px;
-      margin: 0 auto;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin: 0 auto; /* center column */
+      background: transparent; /* let the body background show */
     }
-
     #Home {
       display: block;
     }
@@ -120,15 +125,22 @@
     }
 
     .container {
-      background: white;
+      background: #252525;
       padding: 20px;
       border-radius: 8px;
-      margin: 20px auto;
-      width: 100%;
-      max-width: 900px;
+      margin: 20px 0; /* vertical spacing only */
+      width: 100%; /* fill the tabcontent width */
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
+    .tabcontent iframe {
+      display: block;
+      width: 100%; /* fill the container */
+      height: 450px; /* consistent height */
+      border: none;
+      margin-top: 10px;
+      border-radius: 6px;
+    }
     footer {
       background-color: var(--dark-gray);
       color: white;
@@ -462,103 +474,100 @@
           title="Lab 2 - Keyton"
         ></iframe>
       </div>
-
-      <div id="References" class="tabcontent">
-        <h1>References</h1>
-        <div class="references-list">
-          <p>
-            “All Categories.” <em>Twitch</em>, 14 Apr. 2025,
-            www.twitch.tv/directory?sort=VIEWER_COUNT.
-          </p>
-
-          <p>
-            Clement, Jessica. “Topic: Video Gaming Worldwide.”
-            <em>Statista</em>, 3 June 2024,
-            www.statista.com/topics/1680/gaming/.
-          </p>
-
-          <p>
-            “Looking for Group.” <em>Overwatch Forums</em>,
-            us.forums.blizzard.com/en/overwatch/c/looking-for-group/13. Accessed
-            26 Feb. 2025.
-          </p>
-
-          <p>
-            “Marvel Rivals.” <em>The Game Statistics Authority</em>, 9 Apr.
-            2025, activeplayer.io/marvel-rivals/.
-          </p>
-
-          <p>
-            Neonkiler99. <em>Tom Clancy’s Rainbow Six Siege Wallpaper</em>. 11
-            June 2014. <em>DeviantArt</em>,
-            https://www.deviantart.com/neonkiler99/art/Tom-Clancy-s-Rainbow-Six-Siege-Wallpaper-459995305.
-            Accessed 26 Feb. 2025.
-          </p>
-
-          <p>
-            “Tom Clancy’s Rainbow Six Siege.”
-            <em>The Game Statistics Authority</em>, 9 Apr. 2025,
-            activeplayer.io/tom-clancys-rainbow-six-siege/.
-          </p>
-
-          <p>
-            “Video Game Market Size, Share and Growth Report, 2030.”
-            <em>Grand View Research</em>, 2023,
-            www.grandviewresearch.com/industry-analysis/video-game-market.
-          </p>
-        </div>
-      </div>
-
-      <div id="Glossary" class="tabcontent">
-        <h1>Glossary</h1>
-        Live players: The number of people actively playing a game at a
-        particular time<br />
-        Looking for group: A feature in multiplayer games that allows people to
-        find teammates before matchmaking<br />
-        Matchmaking: The process of pairing players together in multiplayer
-        games<br />
-        Party: Players grouped together before matchmaking<br />
-        Platform: The hardware you play a game on, such as, PlayStation, Xbox,
-        PC, and Nintendo Switch<br />
-        Randoms: Players randomly matched by the matchmaker, particularly low
-        skilled players<br />
-        Toxic: A mean or otherwise very unpleasant player or behavior
-      </div>
-
-      <script>
-        function clickButton(evt, pageName) {
-          console.log("Click event triggered for:", pageName); // Debugging line
-
-          var i, tabcontent, tablinks;
-
-          // Hide all tab contents
-          tabcontent = document.getElementsByClassName("tabcontent");
-          for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-          }
-
-          // Remove active class from all tab buttons
-          tablinks = document.getElementsByClassName("tablinks");
-          for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].classList.remove("active");
-          }
-
-          // Show the selected tab content
-          document.getElementById(pageName).style.display = "block";
-
-          // Mark the clicked button as active
-          evt.currentTarget.classList.add("active");
-        }
-      </script>
-      <footer>
-        <a href="https://www.odu.edu/" target="_blank"
-          >Old Dominion University</a
-        >
-        |
-        <a href="https://www.cs.odu.edu/" target="_blank"
-          >ODU Computer Science Department</a
-        >
-      </footer>
     </div>
+
+    <div id="References" class="tabcontent">
+      <h1>References</h1>
+      <div class="references-list">
+        <p>
+          “All Categories.” <em>Twitch</em>, 14 Apr. 2025,
+          www.twitch.tv/directory?sort=VIEWER_COUNT.
+        </p>
+
+        <p>
+          Clement, Jessica. “Topic: Video Gaming Worldwide.”
+          <em>Statista</em>, 3 June 2024, www.statista.com/topics/1680/gaming/.
+        </p>
+
+        <p>
+          “Looking for Group.” <em>Overwatch Forums</em>,
+          us.forums.blizzard.com/en/overwatch/c/looking-for-group/13. Accessed
+          26 Feb. 2025.
+        </p>
+
+        <p>
+          “Marvel Rivals.” <em>The Game Statistics Authority</em>, 9 Apr. 2025,
+          activeplayer.io/marvel-rivals/.
+        </p>
+
+        <p>
+          Neonkiler99. <em>Tom Clancy’s Rainbow Six Siege Wallpaper</em>. 11
+          June 2014. <em>DeviantArt</em>,
+          https://www.deviantart.com/neonkiler99/art/Tom-Clancy-s-Rainbow-Six-Siege-Wallpaper-459995305.
+          Accessed 26 Feb. 2025.
+        </p>
+
+        <p>
+          “Tom Clancy’s Rainbow Six Siege.”
+          <em>The Game Statistics Authority</em>, 9 Apr. 2025,
+          activeplayer.io/tom-clancys-rainbow-six-siege/.
+        </p>
+
+        <p>
+          “Video Game Market Size, Share and Growth Report, 2030.”
+          <em>Grand View Research</em>, 2023,
+          www.grandviewresearch.com/industry-analysis/video-game-market.
+        </p>
+      </div>
+    </div>
+
+    <div id="Glossary" class="tabcontent">
+      <h1>Glossary</h1>
+      Live players: The number of people actively playing a game at a particular
+      time<br />
+      Looking for group: A feature in multiplayer games that allows people to
+      find teammates before matchmaking<br />
+      Matchmaking: The process of pairing players together in multiplayer
+      games<br />
+      Party: Players grouped together before matchmaking<br />
+      Platform: The hardware you play a game on, such as, PlayStation, Xbox, PC,
+      and Nintendo Switch<br />
+      Randoms: Players randomly matched by the matchmaker, particularly low
+      skilled players<br />
+      Toxic: A mean or otherwise very unpleasant player or behavior
+    </div>
+
+    <script>
+      function clickButton(evt, pageName) {
+        console.log("Click event triggered for:", pageName); // Debugging line
+
+        var i, tabcontent, tablinks;
+
+        // Hide all tab contents
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+
+        // Remove active class from all tab buttons
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].classList.remove("active");
+        }
+
+        // Show the selected tab content
+        document.getElementById(pageName).style.display = "block";
+
+        // Mark the clicked button as active
+        evt.currentTarget.classList.add("active");
+      }
+    </script>
+    <footer>
+      <a href="https://www.odu.edu/" target="_blank">Old Dominion University</a>
+      |
+      <a href="https://www.cs.odu.edu/" target="_blank"
+        >ODU Computer Science Department</a
+      >
+    </footer>
   </body>
 </html>
